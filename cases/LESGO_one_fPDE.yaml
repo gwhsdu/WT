@@ -1,0 +1,49 @@
+---
+seed:           10
+device:         cuda:0
+
+
+# mesh, time
+finemeshsize:   [81,33]
+coarsemeshsize: [27,11]
+timesteps:      1499
+length:         [1600,384]
+dt:             1.0
+datatimestart:  0
+
+
+
+
+
+parahigh:       0.0
+paralow:        0.4
+num_para:       3
+repeat:         20
+
+
+# data
+datafile:       data/one_turbine/LESGO_CPS_100_one_turbine.pt
+# network
+network:        cnn2d_pde  #cnn2d_pde
+
+
+# training
+epochs:         6000
+batchsize:      1000
+lr:             1.e-3
+noiseinject:    False
+
+
+# add pde?
+pde:            True     #True
+
+
+# path
+tensorboarddir:  storage/LESGO_one_turbine/fPDE
+modelsavepath:   storage/model_LESGO_fPDE_one_cps_pde.pth
+
+# equation
+rhsu:           LES2DFu
+rhsv:           LES2DFv
+rhsw:           LES2DFw
+...
